@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1524">
+  <meta name="description" content="Bảng tuần hoàn tương tác tiếng Việt với dữ liệu 118 nguyên tố, cấu trúc electron, nhóm, chu kỳ và tính chất vật lý.">
+  <title>Bảng tuần hoàn — HaoLe 10.6</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <svg class="svg-filter-defs" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <filter id="photo-white-key" color-interpolation-filters="sRGB">
+      <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -2.7778 -2.7778 -2.7778 0 8.0833" result="whiteKey" />
+      <feComposite in="whiteKey" in2="SourceGraphic" operator="in" />
+    </filter>
+  </svg>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="HaoLe 10.6 — về đầu trang">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><ellipse cx="16" cy="16" rx="13" ry="5.5"/><ellipse cx="16" cy="16" rx="13" ry="5.5" transform="rotate(60 16 16)"/><ellipse cx="16" cy="16" rx="13" ry="5.5" transform="rotate(120 16 16)"/><circle cx="16" cy="16" r="2.6"/></svg></span>
+        <span class="brand-name"><strong>HaoLe</strong><span class="brand-divider">·</span><span class="brand-grade">10.6</span></span>
+      </a>
+      <div class="topbar-meta">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span>KHÁM PHÁ NGUYÊN TỐ</span>
+        <span class="meta-divider">/</span>
+        <span class="mono">118 ELEMENTS</span>
+      </div>
+      <a class="top-link" href="#huong-dan">CÁCH ĐỌC <span aria-hidden="true">↘</span></a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span>HÓA HỌC</span><span class="eyebrow-line"></span><span>01 — 118</span></p>
+          <h1 id="page-title">BẢN ĐỒ<br><span>NGUYÊN TỐ</span></h1>
+          <p class="hero-description">Từ số hiệu nguyên tử đến lớp electron ngoài cùng — khám phá cấu trúc vật chất, từng nguyên tố một.</p>
+        </div>
+        <div class="hero-note" aria-label="Thông tin về bảng tuần hoàn">
+          <div class="hero-note-top"><span class="note-index">01</span><span class="note-rule"></span><span class="mono">PUBCHEM / 118</span></div>
+          <p>Một hệ thống.<br><strong>118 nguyên tố.</strong><br>Vô vàn cách vật chất kết hợp.</p>
+          <span class="hero-orbit orbit-one" aria-hidden="true"></span>
+          <span class="hero-orbit orbit-two" aria-hidden="true"></span>
+          <span class="hero-orbit-dot" aria-hidden="true"></span>
+        </div>
+        <div class="hero-number" aria-hidden="true">118</div>
+      </section>
+
+      <section class="stats-strip" aria-label="Tóm tắt bảng tuần hoàn">
+        <div class="stat-item"><span class="stat-value">118</span><span class="stat-label">NGUYÊN TỐ ĐÃ BIẾT</span></div>
+        <div class="stat-item"><span class="stat-value">7</span><span class="stat-label">CHU KỲ NGANG</span></div>
+        <div class="stat-item"><span class="stat-value">18</span><span class="stat-label">NHÓM DỌC</span></div>
+        <div class="stat-item stat-note"><span class="stat-spark" aria-hidden="true">✳</span><span>Chọn một ô để mở<br>hồ sơ nguyên tố</span></div>
+      </section>
+
+      <section class="explorer" aria-labelledby="explorer-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow eyebrow-muted"><span>01 / BẢNG TƯƠNG TÁC</span></p>
+            <h2 id="explorer-title">Tìm nguyên tố</h2>
+          </div>
+          <p class="section-hint"><span class="desktop-hint">Nhấn <span class="keycap">/</span> để tìm nhanh <span class="hint-separator">·</span> <span class="keycap">ESC</span> đóng hồ sơ / đặt lại bộ lọc</span><span class="mobile-hint">Vuốt ngang bảng để xem đủ 18 nhóm.</span></p>
+        </div>
+
+        <div class="toolbar" role="search">
+          <label class="search-box" for="search-input">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.3"></circle><path d="m16 16 4.2 4.2"></path></svg>
+            <input id="search-input" type="search" placeholder="Tìm theo tên, ký hiệu hoặc số hiệu…" autocomplete="off" aria-label="Tìm nguyên tố">
+            <kbd>/</kbd>
+          </label>
+          <label class="select-wrap">
+            <span class="sr-only">Lọc theo chu kỳ</span>
+            <select id="period-filter" aria-label="Lọc theo chu kỳ">
+              <option value="all">Mọi chu kỳ</option>
+              <option value="1">Chu kỳ 1</option><option value="2">Chu kỳ 2</option><option value="3">Chu kỳ 3</option>
+              <option value="4">Chu kỳ 4</option><option value="5">Chu kỳ 5</option><option value="6">Chu kỳ 6</option><option value="7">Chu kỳ 7</option>
+            </select>
+          </label>
+          <label class="select-wrap">
+            <span class="sr-only">Lọc theo nhóm</span>
+            <select id="group-filter" aria-label="Lọc theo nhóm"><option value="all">Mọi nhóm</option></select>
+          </label>
+          <label class="select-wrap category-select">
+            <span class="sr-only">Lọc theo họ nguyên tố</span>
+            <select id="category-filter" aria-label="Lọc theo họ nguyên tố"><option value="all">Mọi họ nguyên tố</option></select>
+          </label>
+          <button class="reset-button" id="reset-filters" type="button" title="Xóa tìm kiếm và bộ lọc">ĐẶT LẠI <span aria-hidden="true">↺</span></button>
+        </div>
+        <div class="filter-status" aria-live="polite"><span class="status-dot"></span><span id="result-count">118 nguyên tố</span><span id="filter-summary"></span></div>
+
+        <div class="periodic-card">
+          <div class="table-legend">
+            <span class="legend-title">BẢNG TUẦN HOÀN</span>
+            <div class="legend-items" id="legend-items" aria-label="Chú giải các họ nguyên tố"></div>
+          </div>
+          <div class="table-scroller" tabindex="0" aria-label="Bảng tuần hoàn có thể cuộn ngang">
+            <div class="periodic-grid" id="periodic-grid" aria-label="Bảng tuần hoàn 118 nguyên tố"></div>
+          </div>
+          <div class="table-footnote"><span class="footnote-mark">i</span><span>La và Ac ở nhóm 3; các nguyên tố còn lại của hai dãy f được đặt thành hàng riêng bên dưới.</span><span class="mono">NHÓM IUPAC 1–18</span></div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="huong-dan" aria-labelledby="guide-heading">
+        <div class="guide-title"><p class="eyebrow eyebrow-muted"><span>03 / ĐỌC BẢNG</span></p><h2 id="guide-heading">Một cấu trúc,<br>nhiều quy luật.</h2></div>
+        <div class="guide-cards">
+          <article class="guide-card"><span class="guide-number">01</span><span class="guide-icon guide-icon-row" aria-hidden="true">↔</span><h3>Chu kỳ là hàng ngang</h3><p>Số thứ tự chu kỳ cho biết lớp electron có số lượng tử chính lớn nhất đang được lấp đầy.</p></article>
+          <article class="guide-card"><span class="guide-number">02</span><span class="guide-icon guide-icon-col" aria-hidden="true">↕</span><h3>Nhóm là cột dọc</h3><p>Các nguyên tố cùng nhóm thường có cấu hình electron ngoài cùng tương tự và tính chất hóa học gần nhau.</p></article>
+          <article class="guide-card"><span class="guide-number">03</span><span class="guide-icon guide-icon-shell" aria-hidden="true">◎</span><h3>Lớp ngoài cùng</h3><p>Số electron ở lớp có n lớn nhất. Với kim loại chuyển tiếp, electron ở phân lớp d cũng có thể tham gia liên kết.</p></article>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="element-dialog" id="element-dialog" aria-labelledby="profile-heading">
+      <div class="dialog-header">
+        <div class="dialog-heading">
+          <p class="eyebrow eyebrow-muted"><span>HỒ SƠ NGUYÊN TỐ</span><span class="eyebrow-line"></span><span class="mono">CHI TIẾT</span></p>
+          <h2 id="profile-heading">Thông tin nguyên tố</h2>
+          <p class="dialog-subtitle">Thông số nguyên tử trung hòa ở trạng thái cơ bản</p>
+        </div>
+        <button class="dialog-close" id="close-profile" type="button" aria-label="Đóng hồ sơ nguyên tố" autofocus>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+        </button>
+      </div>
+      <article class="element-profile" id="element-profile" aria-live="polite"></article>
+    </dialog>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#top" aria-label="HaoLe 10.6 — về đầu trang"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><ellipse cx="16" cy="16" rx="13" ry="5.5"/><ellipse cx="16" cy="16" rx="13" ry="5.5" transform="rotate(60 16 16)"/><ellipse cx="16" cy="16" rx="13" ry="5.5" transform="rotate(120 16 16)"/><circle cx="16" cy="16" r="2.6"/></svg></span><span class="brand-name"><strong>HaoLe</strong><span class="brand-divider">·</span><span class="brand-grade">10.6</span></span></a>
+      <p>Dữ liệu nguyên tố: <a href="https://pubchem.ncbi.nlm.nih.gov/periodic-table/" target="_blank" rel="noreferrer">PubChem</a> · Tên tiếng Việt: <a href="https://tieuchuan.vsqi.gov.vn/tieuchuan/view?sohieu=TCVN+5530%3A2010" target="_blank" rel="noreferrer">TCVN 5530:2010</a> · Nhóm: <a href="https://iupac.org/what-we-do/periodic-table-of-elements/" target="_blank" rel="noreferrer">IUPAC</a></p>
+      <p class="footer-note">Mô hình Bohr và số nơtron là minh họa gần đúng; nguyên tố có thể có nhiều đồng vị.</p>
+      <a class="back-top" href="#top">LÊN ĐẦU TRANG ↑</a>
+    </footer>
+  </div>
+</body>
+</html>
